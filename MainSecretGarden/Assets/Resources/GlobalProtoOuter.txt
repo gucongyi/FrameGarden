@@ -1,0 +1,3 @@
+{
+    "VersionCodeParentDir":"ccgameserverhttp.ccgamestudio.com:8066/home/abpackage/ABStruct/"
+}
