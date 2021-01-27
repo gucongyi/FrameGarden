@@ -1,0 +1,17 @@
+/MainSecretGarden/Library/
+/MainSecretGarden/Temp/
+*.TextMeshPro.Editor.csproj
+*.TextMeshPro.csproj
+*.PackageManagerUI.Editor.csproj
+*.CollabProxy.Editor.csproj
+*.Analytics.DataPrivacy.csproj
+/MainSecretGarden/.vs/
+/MainSecretGarden/obj/
+/Release/
+/MainSecretGarden/Assembly-CSharp.csproj
+/MainSecretGarden/Assets/StreamingAssets
+/MainSecretGarden/Assembly-CSharp-Editor.csproj
+/MainSecretGarden/MainSecretGarden.Editor.csproj
+/MainSecretGarden/MainSecretGarden.csproj
+/MainSecretGarden/Unity.AssetBundleBrowser.Editor.csproj
+*.csproj
