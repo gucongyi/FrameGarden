@@ -1,0 +1,24 @@
+// 统一出入口
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+
+// 请求数据
+message CSServerReq {
+    // 操作码
+    OpCodeType OpCode = 1;
+    // 用户唯一uId
+    int64 Uid = 2;
+    // 请求信息
+    bytes Data = 3;
+}
+
+// 返回数据
+message SCServerRes {
+    // 错误码
+    int32 Code = 1;
+    // 返回码
+    OpCodeType RtCode = 2;
+    // 返回信息
+    bytes Data = 3;
+}

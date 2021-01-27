@@ -1,0 +1,292 @@
+// 庄园
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+import "Warehouse.proto";
+import "StageProperty.proto";
+
+// 拖拽创建道具
+message CSDrag {
+    // 道具类型
+    int32 Type = 1;
+    // x轴信息
+    float Xaxle = 2;
+    // y轴信息
+    float Yaxle = 3;
+    // 拖拽物id
+    int32 GoodId = 4;
+}
+message SCDrag {
+    // 拖拽道具唯一id
+    int64 SoilId = 1;
+}
+
+// 交换位置
+message CSChangeLocation {
+    // 地id
+    int64 SoilId = 1;
+    // x轴信息
+    float Xaxle = 2;
+    // y轴信息
+    float Yaxle = 3;
+}
+
+// 种植
+message CSPlantStruct {
+    // 种植地id
+    int64 SoilId = 1;
+    // 种植道具id
+    int64 CropGoodId = 2;
+}
+message CSPlantData {
+    repeated CSPlantStruct PlantInfo = 1;
+}
+// 种植结果
+message SCPlantResult {
+    repeated CSPlantStruct PlantResult = 1;
+}
+
+// 提前铲除种植物
+message CSEradicate {
+    // 种植地id
+    int64 SoilId = 1;
+}
+
+// 一键收获
+message CSHarvestStruct {
+    // 种植地id
+    int64 SoilId = 1;
+}
+message CSHarvestData {
+    repeated CSHarvestStruct HarvestInfo = 1;
+}
+
+// 一键收获结果
+message SCHarvestStruct {
+    // 种植地id
+    int64 SoilId = 1;
+    // 收获物id
+    int32 HarvestId = 2;
+    // 收获物数量
+    int32 HarvestNum = 3;
+    // 收获经验
+    int32 HarvestExperience = 4;
+}
+message SCHarvestData {
+    repeated SCHarvestStruct HarvestResult = 1;
+}
+
+// 偷取
+message CSStealStruct {
+    // 种植地id
+    int64 SoilId = 1;
+}
+message CSStealData {
+    repeated CSStealStruct StealInfo = 1;
+    // 偷取人Uid
+    int64 StealUid = 2;
+}
+
+// 偷取结果
+message SCStealResult {
+    // 种植地id
+    int64 SoilId = 1;
+    // 偷取物id
+    int32 StealId = 2;
+    // 偷取数量
+    int32 StealNum = 3;
+}
+message SCStealData {
+    repeated SCStealResult StealResult = 1;
+}
+
+// 庄园信息
+message SCManorStruct {
+    // 种植地id
+    int64 SoilId = 1;
+    // 地类型
+    ManorScene SoilType = 2;
+    // 种植道具id
+    int64 CropGoodId = 3;
+    // 当前产量
+    int32 Yield = 4;
+    // 总产量
+    int32 TotalYield = 5;
+    // 状态
+    PeriodGrow SoilStatus = 6;
+    // x轴信息
+    float Xaxle = 7;
+    // y轴信息
+    float Yaxle = 8;
+    // 成熟时间
+    // 到下一阶段的时间
+    int64 NextTime = 9;
+    // 属于哪个地块
+    int32 ParcelDivision = 10;
+    // 是否能偷取
+    bool IsSteal = 11;
+    // 宝箱倒计时
+    int64 BoxCountDown = 12;
+    // 宝箱是否在解锁中
+    bool BoxIsUnLocking = 13;
+    // 装饰物旋转下标
+    int32 DecorateRotateIndex = 14;
+}
+// 大区域解锁
+message SCUnlockAreaStruct {
+    // 区域id
+    int32 AreaId = 1;
+    // 区域状态
+    AreaState State = 2;
+    // 区域解锁时间
+    int64 AreaUnlockTime = 3;
+}
+message SCManorData {
+    repeated SCManorStruct ManorInfo = 1;
+    repeated SCUnlockAreaStruct UnlockAreaInfo= 2;
+}
+
+// 使用化肥
+message CSFertilizer {
+    // 种植地id
+    int64 SoilId = 1;
+    // 道具id
+    int32 FertilizerId = 2;
+}
+
+// 查询其它人庄园信息
+message CSQueryOther {
+    int64 OtherUid = 1;
+}
+
+// 返回其它人庄园信息
+message SCManorFriendData {
+    repeated SCManorStruct OtherManorInfo = 1;
+    repeated SCUnlockAreaStruct UnlockAreaInfo= 2;
+}
+
+// 解锁大区域
+message CSUnlockArea {
+    // 区域id
+    int32 AreaId = 1;
+    // 区域状态
+    AreaState State = 2;
+}
+
+// 解锁大区域返回
+message SCUnlockArea {
+    // 施工时间
+    int64 RoadworkTime = 1;
+    // 状态
+    AreaState State = 2;
+    // 大区解锁获得奖励
+    repeated SCBuyGoodsStruct  GoodsInfo = 3;
+}
+
+// 装饰物收回
+message CSOrnamentalRecycle {
+    int64 SoilId = 1;
+}
+
+// 返回好友列表成熟信息
+message SCFriendStealStruct {
+    int64 Uid = 1;
+    // 是否能偷取
+    bool IsSteal = 2;
+}
+message SCFriendStealInfo {
+    repeated SCFriendStealStruct info = 1;
+}
+
+// 工棚施工加速
+message CSWorkShedSpeedUp {
+    // 区域id
+    int32 AreaId = 1;
+    // 加速方式
+    WorkShedSpeedUpWay SpeedUpWay = 2;
+}
+// 工棚施工加速返回
+message SCWorkShedSpeedUp {
+    // 解锁时间
+    int64 UnlockTime = 1;
+}
+
+// 庄园日志返回结构
+message CSManorLogsStruct {
+    // 偷取时间
+    int64 StealTime = 1;
+    // 偷取人Uid
+    int64 Uid = 2;
+    // 偷取农作物信息
+    repeated CSGoodStruct StealCropInfo = 3;
+    // 偷取类型
+    ManorStealType StealType = 4;
+    // 是否能偷取
+    bool IsSteal = 5;
+    // 偷取人名称
+    string Account = 6;
+    // 偷取人头像
+    int32 Image = 7;
+    // 偷取人经验
+    int32 Experience = 8;
+}
+
+// 庄园日志
+message SCManorLogs {
+    // 偷取信息
+    repeated CSManorLogsStruct StealInfo = 1;
+}
+
+// 请求地鼠奖励信息
+message SCMarmotAwardInfo {
+    // 奖励信息
+    CSWareHouseStruct AwardInfo = 1;
+}
+
+// 请求自己庄园地鼠奖励
+message CSOneselfMarmot {
+    // 是否观看广告
+    bool IsAdvert = 1;
+}
+
+// 获取自己庄园的地鼠奖励
+message SCOneselfMarmot {
+    repeated CSWareHouseStruct AwardInfo = 1;
+}
+
+// 请求好友庄园的地鼠奖励
+message CSFriendMarmot {
+    // 好友Uid
+    int64 FriendUid = 1;
+    // 是否观看广告
+    bool IsAdvert = 2;
+}
+
+// 获取好友庄园的地鼠奖励
+message SCFriendMarmot {
+    repeated CSWareHouseStruct AwardInfo = 1;
+}
+
+// 庄园是否有作物成熟
+message SCCropMature {
+    // 是否成熟
+    bool Mature = 1;
+}
+
+// 庄园装饰旋转
+message CSManorDecorateRotate  {
+    // 地块id
+    int32 SoilId = 1;
+    // 旋转下标
+    int32 RotateIndex = 2; 
+}
+
+// 装饰物升级
+message CSDerectUp {
+    int32 SoilId = 1;
+}
+
+// 一键浇水返回 
+message SCOnceWatering {
+    repeated int64 SoilId = 1;
+}

@@ -1,0 +1,8 @@
+// 点赞
+syntax = "proto3";
+package Game.Protocal;
+
+// 请求好友点赞
+message CSLike {
+    int64 FriendUid = 1;
+}

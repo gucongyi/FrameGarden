@@ -1,0 +1,43 @@
+// 大富翁
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+import "StageProperty.proto";
+
+// 请求进入大富翁地图
+message CSEnterMap {
+    // 地图id
+    int32 MapId = 1;
+}
+
+// 请求骰子类型
+message CSDice {
+    // 筛子类型
+    DiceType dice = 1;
+}
+
+// 骰子信息结果
+message SCDiceStruct {
+    // 骰子数
+    int32 DiceNum = 1;
+    // 事件位置
+    repeated int32 Location = 2;
+    // 当前位置
+    int32 PresentLocation = 3;
+}
+
+// 返回骰子结果
+message SCDiceResult {
+    repeated SCDiceStruct Info = 1;
+}
+
+// 请求抽道具或种子功能
+message CSLucky {
+    LuckyTyep Type = 1;
+    repeated int32 GoodId = 2;
+}
+
+// 返回抽道具或种子信息
+message SCLucky {
+    SCBuyGoodsStruct Info = 1;
+}

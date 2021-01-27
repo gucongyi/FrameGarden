@@ -1,0 +1,54 @@
+// 章节
+syntax = "proto3";
+package Game.Protocal;
+import "StageProperty.proto";
+
+// 购买章节
+message CSBuySection {
+    // 章节id
+    int32 SectionId = 1;
+}
+
+// 购买章节返回
+message SCBuySection {
+    // 返回货币信息
+    repeated SCBuyGoodsStruct CurrencyInfo = 1;
+}
+
+// 通关章节
+message CSClearance {
+    // 章节id
+    int32 SectionId = 1;
+}
+
+// 购买番外剧情
+message CSBuyExtraStory {
+    // 番外id
+    int32 ExtraStoryId = 1;
+}
+
+// 购买番外剧情返回
+message SCBuyExtraStory {
+    // 返回货币信息
+    repeated SCBuyGoodsStruct CurrencyInfo = 1;
+}
+
+// 广告信息结构
+message CSAdvStruct {
+    // 物品id
+    int32 GoodsId = 1;
+    // 已看广告次数
+    int32 AdvNum = 2;
+}
+
+// 观看番外广告
+message CSAdvExtraStory {
+    // 番外id
+    int32 ExtraStoryId = 1;
+}
+
+// 进入章节
+message CSEntranceSection {
+    // 章节id
+    int32 SectionId = 1;
+}

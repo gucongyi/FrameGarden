@@ -1,0 +1,80 @@
+// 晚会
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+import "PushData.proto";
+
+// 获取房间列表
+message SCRoomListStruct {
+    // 房间id
+    int32 RoomId = 1;
+    // 当前房间人数
+    int32 RoomNum = 2;
+}
+message SCRoomListInfo {
+    repeated SCRoomListStruct RoomInfo = 1;
+}
+
+// 进入(切换)晚会房间
+message CSEntranceRoom {
+    // 房间id(不填随机分配)
+    int32 RoomId = 1;
+}
+// 返回在房间玩家信息
+message SCRoomUserStruct {
+    // uid
+    int64 Uid = 1;
+    // 昵称
+    string Name = 2;
+    // x轴
+    float Xaxle = 3;
+    // y轴
+    float Yaxle = 4;
+    // 角色id
+    int32 RoomId = 5;
+    // 服饰id
+    int32 CostumeId = 6;
+}
+// 返回晚会活动状态及信息
+message SCRoomActivityStruct {
+    // 比赛状态
+    SoireeGameStates GameStates = 1;
+    // 下注情况
+    repeated CSGuessing BetInfo = 2;
+    // 比赛情况
+    SCpushGuessingInfo GameInfo = 3;
+    // 结束时间
+    int64 EndTime = 4;
+}
+message SCEntranceRoom {
+    repeated SCRoomUserStruct SCRoomUserInfo = 1;
+    // 活动情况
+    SCRoomActivityStruct ActivityInfo = 2;
+}
+
+// 竞猜
+message CSGuessing {
+    // 乌龟编号
+    GuessingNumber TortoiseId = 1;
+    // 应援币
+    int32 SupportNum = 2;
+}
+
+// 频道聊天
+message CSChannelChat {
+    string message = 1;
+}
+
+// 移动位置
+message CSMoveLocation {
+    // x轴
+    float Xaxle = 1;
+    // y轴
+    float Yaxle = 2;
+}
+
+// 动作请求
+message CSMotion {
+    int32 Id = 1;
+}
+

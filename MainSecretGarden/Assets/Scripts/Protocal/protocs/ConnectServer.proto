@@ -1,0 +1,13 @@
+// 获取连接服务器信息
+syntax = "proto3";
+import "EnumType.proto";
+package Game.Protocal;
+
+// 返回连接逻辑服务器信息结构
+message SCConnectInfo {
+    uint64 Ip = 1;
+    int32 Port = 2;
+    ServerStatus Status = 3;
+}
+
+

@@ -1,0 +1,35 @@
+// 任务
+syntax = "proto3";
+package Game.Protocal;
+import "Warehouse.proto";
+import "EnumType.proto";
+
+// 获取任务列表结构
+message SCGetTaskInfoStruct {
+    // 任务ID
+    int32 TaskID = 1;
+    // 当前任务进度
+    int32 Schedule = 2;
+    // 是否领取
+    bool IsGet = 3;
+    // 任务类型
+    TaskType Type = 4;
+}
+
+// 获取任务列表
+message SCGetTaskInfo {
+    repeated SCGetTaskInfoStruct TaskInfo = 1;
+}
+
+// 领取任务奖励
+message CSGetTaskAward {
+    repeated int32 TaskIDs = 1;
+    // 是否一键
+    bool IsOneKey = 2;
+}
+
+// 奖励返回
+message SCGetTaskAward {
+    repeated int32 TaskIDList = 1;
+    repeated CSGoodStruct AwardInfo = 2;
+}

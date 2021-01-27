@@ -1,0 +1,74 @@
+// 邮箱
+syntax = "proto3";
+package Game.Protocal;
+
+// 邮件结构
+message CSMailStruct {
+    // 邮件id
+    int32 MailId = 1;
+    // 配置id
+    int32 ConfigId = 2;
+    // 正文
+    int32 Message = 3;
+    // 标题
+    int32 Title = 4;
+    // 副标题多语言ID
+    int32 SubheadID = 5;
+    // 发件人
+    int32 Addresser = 6;
+    // 状态
+    int32 State = 7;
+    // 失效时间
+    int64 DisabledTime = 8;
+    // 有无附件
+    bool HaveAccessory = 9;
+}
+// 获取邮件信息
+message SCMailInfo {
+    repeated CSMailStruct Mail = 1;
+}
+
+// 获取附件信息
+message CSAccessoryInfo {
+    // 邮件id
+    int32 MailId = 1;
+}
+
+// 邮件附件结构
+message CSMailAccessory {
+    // 道具id
+    int32 GoodsId = 1;
+    // 道具数量
+    int32 GoodsNum = 2;
+}
+
+// 返回附件信息
+message SCAccessory {
+    repeated CSMailAccessory Goods = 1;
+}
+
+// 附件入库
+message CSAccessoryInWarehouse {
+    // 邮件id
+    int32 MailId = 1;
+}
+// 附件入库返回
+message SCAccessoryInWarehouse {
+    // 邮件id
+    repeated int32 MailId = 1;
+    // 附件信息
+    repeated CSMailAccessory GoodsInfo = 2;
+}
+
+// 邮件状态结构
+message CSMailStateStruct {
+    // 邮件id
+    int32 MailId = 1;
+    // 邮件状态
+    int32 MailState = 2;
+}
+
+// 改变邮件状态
+message CSChangeMailState {
+    repeated CSMailStateStruct MailInfo = 1;
+}

@@ -1,0 +1,14 @@
+// 聊天功能
+syntax = "proto3";
+package Game.Protocal;
+
+// 世界聊天
+message CSWorldChat {
+    string Message = 1;
+}
+
+// 私聊
+message CSPrivateChat {
+    int64 Uid = 1;
+    string Message = 2;
+}

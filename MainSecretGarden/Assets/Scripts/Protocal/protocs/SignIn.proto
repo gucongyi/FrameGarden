@@ -1,0 +1,28 @@
+// 每日签到
+syntax = "proto3";
+package Game.Protocal;
+
+
+// 签到记录信息
+message SCSignInStruct {
+    // 签到天数
+    int32 DayNumber = 1;
+    // 签到时间
+    int64 SignInTime = 2;
+}
+
+// 每日签到返回
+message SCEverydayAward {
+    // 包裹id
+    int32  ParcelId = 1;
+    // 道具id
+    int32 GoodId = 2;
+    // 道具数量
+    int32 GoodNum = 3;
+}
+
+// 请求累积奖励
+message CSAccumulateSignIn {
+    // 请求奖励天数
+    int32 AccumulateDay = 1;
+}

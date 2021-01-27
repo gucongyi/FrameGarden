@@ -1,0 +1,66 @@
+// 订单系统
+syntax = "proto3";
+package Game.Protocal;
+import "Warehouse.proto";
+import "EnumType.proto";
+
+// 订单广告跳过
+message CSAdvSkipDeal {
+    // 订单ID
+    int32 DealId = 1;
+}
+
+// 生成订单信息
+message SCCreateDeal {
+    // 订单ID
+    int32 DealId = 1;
+    // 订单刷新时间
+    int64 DealRefreshTime = 2;
+    // 订单奖励信息
+    repeated CSGoodStruct DealAwardInfo = 3;
+    // 订单需求道具
+    repeated CSGoodStruct DealNeedGoods = 4;
+    // 订单类型 
+    DealType DealType = 5;
+    // 角色ID
+    int32 RoleID = 6;
+    // 对话ID
+    int32 DescID = 7;
+}
+
+// 订单信息
+message SCDealInfo {
+    repeated SCCreateDeal DealInfo = 1;
+    // 订单完成数量详情
+    repeated int32 DealNum = 2;
+}
+
+// 提交订单
+message CSSubmintDeal {
+    // 订单ID
+    int32 DealId = 1;
+}
+
+// 提交订单返回
+message SCSubmintDeal {
+    // 订单信息
+    SCCreateDeal NewDealInfo = 1;
+}
+
+// 刷新订单 
+message CSRefreshDeal {
+    // 订单ID
+    int32 DealId = 1;
+}
+
+// 刷新订单返回
+message SCRefreshDeal {
+    // 需求道具信息
+    repeated CSGoodStruct DealNeedGoods = 1;
+    // 订单奖励配置
+    repeated CSGoodStruct DealAwardInfo = 2;
+    // 角色ID
+    int32 RoleID = 3;
+    // 对话ID
+    int32 DescID = 4;
+}

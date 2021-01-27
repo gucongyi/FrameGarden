@@ -1,0 +1,38 @@
+// 仓库信息
+syntax = "proto3";
+package Game.Protocal;
+
+// 道具出售结构
+message CSGoodStruct {
+    // 道具id
+    int32 GoodId = 1;
+    // 道具数量
+    int32 GoodNum = 2;
+}
+// 道具出售
+message CSGoodSellData {
+    repeated CSGoodStruct GoodSellInfo = 1;
+}
+
+// 道具出售返回
+message SCGoodSellData {
+    repeated CSGoodStruct GoodSellInfo = 1;
+}
+
+// 道具锁定
+message CSGoodLock {
+    // 道具id
+    repeated int32 GoodId = 1;
+}
+
+// 仓库信息结构
+message CSWareHouseStruct {
+    // 道具id
+    int32 GoodId = 1;
+    // 道具数量
+    int32 GoodNum = 2;
+    // 是否锁定
+    bool IsLock = 3;
+}
+
+

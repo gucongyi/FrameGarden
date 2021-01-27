@@ -1,0 +1,85 @@
+// 账户信息
+syntax = "proto3";
+package Game.Protocal;
+import "Role.proto";
+import "Warehouse.proto";
+import "HallRole.proto";
+import "Section.proto";
+import "Impulse.proto";
+import "SignIn.proto";
+import "Task.proto";
+
+// 设置用户昵称,头像或者头像url
+message CSSetBasicsInfo {
+    string Name = 1;
+    int32 Image = 2;
+    string ImageAddress = 3;
+}
+
+// 返回用户信息
+message SCUserInfo {
+    // 玩家昵称
+    string Name = 1;
+    // 玩家头像id
+    int32 Image = 2;
+    // 经验
+    int32 Experience = 3;
+    // 当前服务器时间
+    int64 PresentTime = 4;
+    // 角色列表
+    repeated CSRoleStruct RoleSInfo = 5;
+    // 解锁大富翁地图列表
+    string ZillionaireMap = 6;
+    // 当日进入大富翁的次数
+    int32 ZillionaireCount = 7;
+    // 仓库格子总数
+    int32 WarehouseCount = 8;
+    // 当前阅读章节ID
+    int32 SectionId = 9;
+    // 地块使用数量
+    int32 PlotUseNum = 10;
+    // 仓库信息
+    repeated CSWareHouseStruct WareHoseInfo = 11;
+    // 番外剧情id用西文逗号分隔
+    string ExtraStory = 12;
+    // 最大解锁章节id
+    int32 UnlockSectionId = 13;
+    // 大厅角色列表
+    repeated CSHallRoleStruct HallRoleInfo = 14;
+    // 是否有首充优惠
+    bool IsFirstDiscounts = 15;
+    // 番外剧情广告信息
+    repeated CSAdvStruct AdvInfo = 16;
+    // 好感值领取状态
+    CSLoginFavorableStruct GetFavorableStateInfo = 17;
+    // 玩家已获得头像
+    string AchieveImage = 18;
+    // 获取签到信息
+    repeated SCSignInStruct SignInInfo = 19;
+    // 获取签到天数
+    int32 SignDays = 20;
+    // 获取引导列表
+    repeated SCGetTaskInfoStruct TaskInfo = 21;
+    // 庄园免费使用次数
+    int32 CropCount = 22;
+    // 是否有首充优惠
+    // repeated int32 IsFirstDiscounts = 23;
+    // 引导id
+    repeated int32 Guidance = 24;
+    // 用户自定义头像
+    string ImageAddress = 25;
+}
+
+// 购买内置头像
+message CSBuyImage {
+    // 头像id
+    int32 ImageId = 1;
+}
+
+// 返回玩家等级
+message SCCurrentExperience {
+    // 之前等级
+    int32 BefourGrade = 1;
+    // 现在等级
+    int32 CurrentGrade = 2;
+}

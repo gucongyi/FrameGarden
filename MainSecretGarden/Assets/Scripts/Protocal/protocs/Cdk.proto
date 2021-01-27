@@ -1,0 +1,15 @@
+// cdk功能
+syntax = "proto3";
+package Game.Protocal;
+import "Warehouse.proto";
+
+// 请求cdk兑换
+message CSCdkAward {
+    string CdkCode = 1;
+}
+
+// 返回cdk奖励
+message SCCdkAward {
+    // 奖励信息
+    repeated CSWareHouseStruct AwardInfo = 1;
+}

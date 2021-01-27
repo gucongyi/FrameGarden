@@ -1,0 +1,1190 @@
+// 枚举定义
+syntax = "proto3";
+package Game.Protocal;
+
+// 错误码定义
+enum ErrorCode {
+	// 未知错误
+	None = 0;
+	// 成功
+	Success = 1;
+	// 操作码为空
+	OpCode_Null = 2;
+	// 请求数据为空
+	Send_Data_Null = 2000;
+	// 解析数据异常
+	ServerReport_ServerReqDecodeFail = 3000;
+	// mysql错误
+	Mysql_Error = 4000;
+	// 请求失败没有对应方法
+	RequestError_NoMethod = 4001;
+	// 服务器异常
+	ServerException = 4002;
+	// 请求必要信息为空
+	Request_Essential_Null = 4003;
+
+	// 账户数据异常
+	Account_Abnormity = 10002;
+	// 新增用户失败
+	Account_Add_Error = 10003;
+	// 账户重复登录
+	Account_Repetition = 10005;
+	// 唯一凭证为空
+	Account_Sole_Null = 10006;
+	// 没有这个用户
+	Account_Inexistence = 10007;
+	// 设置账户名失败
+	Account_SetName_Error = 10008;
+	// 设置头像失败
+	Account_SetImage_Error = 10009;
+	// 获取用户大富翁地图信息失败
+	Account_Zillionaire_Map = 10013;
+	// 玩家暂时未获得大富翁这个地图
+	Account_Zillionaire_Acquire = 10014;
+	// 玩家该等级无升级奖励
+	Account_UpGrade_NoneAward = 10015;
+	// 获取用户关联数据失败
+	Account_User_Config = 10016;
+	// 获取用户数据失败
+	Account_User_Info = 10017;
+	// 设置用户昵称重复
+	Account_SetName_Repetition = 10018;
+	// 没有对应的头像信息
+	Account_Image_Config = 10019;
+	// 未获得头像
+	Account_No_Image = 10020;
+	// 获取头像信息失败
+	Account_Image_Info = 10021;
+	// 注销账号失败
+	Account_Logout_Error = 10022;
+
+
+	// 添加好友失败
+	Friend_Add_Fail = 20004;
+	// 重复添加好友申请
+	Friend_Add_Again = 20005;
+	// 删除好友失败
+	Friend_Del_Fail = 20006;
+	// 搜索好友为空
+	Friend_Search_Fail = 200007;
+	// 好友上限
+	Friend_Max = 200008;
+	// 玩家不存在
+	User_Not_Existent = 200010;
+	// 拒绝添加好友失败
+	Friend_Refuse_Add = 200013;
+
+	// 大富翁
+	// 没有请求的地图信息
+	Map_Inexistence = 200100;
+	// 地图重复购买
+	Map_Repetition_Buy = 200102;
+	// 体力不够了
+	Map_PhysicalPower_Insufficient = 200103;
+	// 本次游戏购买次数上限
+	Map_Purchase_Limit = 200105;
+	// 购买角色不存在
+	Map_Role_Inexistence = 200107;
+	// 购买角色失败
+	Map_Role_defeated = 200108;
+	// 生成大富翁奖励失败
+	Map_Award_Defeated = 200109;
+	// 记录奖励信息失败
+	Map_Record_Award = 200110;
+	// 购买地图失败
+	Map_Buy_Defeated = 200113;
+	// 选择角色失败
+	Map_Choice_Defeated = 200114;
+	// 当前种植地上限
+	Map_Plant_Limit = 200115;
+	// 进入大富翁使用次数完
+	Map_Count_Finish = 200118;
+	// 扣除大富翁次数失败
+	Map_Count_Deduct = 200119;
+	// 请选择骰子类型
+	Map_Dice_Type = 200120;
+	// 骰子失败
+	Map_Dice_Defeated = 200121;
+	// 请选择抽奖类型
+	Map_Lucky_Type = 200122;
+	// 不在抽道具位置
+	Map_Lucky_Prop = 200123;
+	// 不在抽种子位置
+	Map_Lucky_Seed = 200124;
+	// 抽奖次数已用户
+	Map_Lucky_Count = 200125;
+	// 获取奖励失败
+	Map_Lucky_Defeated = 200126;
+
+
+
+	// 庄园
+	// 拖拽失败
+	Manor_Drag_Defeated = 203000;
+	// 提前铲除种植物失败
+	Manor_Eradicate_Defeated = 203002;
+	// 交换位置失败
+	Manor_Change_Position = 203004;
+	// 没有需要收获的
+	Manor_Harvest = 203005;
+	// 种植数据为空
+	Manor_Plant_Null = 203006;
+	// 查询玩家没有信息
+	Manor_None_Info = 203007;
+	// 作物已成熟不能使用化肥
+	Manor_Crop_Adultness = 203008;
+	// 化肥使用失败
+	Manor_Use_Fertilizer = 203010;
+	// 没有这个地块信息
+	Manor_Parcel_Info = 203011;
+	// 回收的类型不是装饰物
+	Manor_Recycle_Decorate = 203014;
+	// 当前这块地不在种植中
+	Manor_No_Plant = 203015;
+	// 移除装饰物失败
+	Manor_Remove_Defeated = 203016;
+	// 收获失败
+	Manor_Harvest_Defeated = 203017;
+	// 扣除玩家农作物失败
+	Manor_Deduct_Goods = 203018;
+	// 不能偷取自己
+	Manor_Steal_Oneself = 203020;
+	// 没有可以偷取的作物
+	Manor_Steal_No = 203021;
+	// 没有对应解锁信息
+	Manor_Unlock_Info = 203023;
+	// 作物已被收获了
+	Manor_Harvest_Finish = 203025;
+	// 作物不能在偷取了
+	Manor_Harvest_Lateness = 203026;
+	// 新增解锁区域失败
+	Manor_New_Defeated = 203027;
+	// 修改区域状态信息失败
+	Manor_Area_State = 203028;
+	// 获取区域状态信息失败
+	Manor_Acquire_Area = 203029;
+	// 当前在施工阶段
+	Manor_Roadwork_Stage = 203030;
+	// 当前不能施工加速
+	Manor_Roadwork_Speed = 203031;
+	// 庄园宝箱解锁钥匙不足
+	Manor_Key_Notenough = 203034;
+	// 回收地块道具失败
+	Manor_Recycle_Error = 203035;
+	// 宝箱解锁时间异常
+	Manor_BoxUnlock_Time = 203036;
+	// 宝箱还在解锁中
+	Manor_Box_Unlock = 203037;
+	// 回收宝箱失败
+	Manor_Box_Recycle = 203038;
+	// 选择的不是宝箱
+	Manor_No_Box = 203039;
+	// 宝箱已处理领域状态了
+	Manor_Box_Get = 203040;
+	// 更新宝箱解锁时间错误
+	Manor_Box_UpdateUnlockTIme = 203041;
+	// 今日地鼠奖励次数上限
+	Manor_Diglett_NumMax = 203042;
+	// 获取地鼠奖励失败
+	Manor_DiglettWarad_Error = 203043;
+	// 已经抓过该好友庄园地鼠
+	Manor_FriendManorDiglett_Again = 203044;
+	// 请求异常不允许在好友庄园领取自己庄园地鼠
+	Manor_FriendDiglett_Myself = 203045;
+	// 偷取日志记录失败
+	Manor_StealLog_Error = 203046;
+	// 拖拽的不是装饰物
+	Manor_ManorDrag_NoDecorate = 203047;
+	// 庄园看广告加速次数已用完
+	Manor_Free_Number = 203048;
+	// 庄园看广告加速失败
+	Manor_Free_Defeated = 203049;
+	// 该作物不能购买
+	Manor_ThisCrop_DonTBuy = 203050;
+	// 装饰物旋转失败
+	Manor_DecorateRotate_Error = 203051;
+	// 水滴为空
+	Manor_Water_Null = 203052;
+	// 使用水滴失败
+	Manor_Use_Water = 203053;
+
+
+	// 道具
+	// 道具ID错误
+	Good_Id_Error = 205001;
+	// 购买失败消耗道具不足
+	Good_Consume = 205002;
+	// 道具更新失败
+	Good_Update_Error = 205004;
+	// 道具锁定失败
+	Good_Lock_Error = 205006;
+	// 出售失败
+	Good_Sell_Error = 205007;
+	// 获取金币钻石失败
+	Good_Goldjewel_Error = 205009;
+	// 钻石不足
+	Good_Jewel_Insufficient = 205010;
+	// 配置异常
+	Store_Config_Error = 205011;
+	// 钻石对换金币失败
+	Jewel_Trade_Gold = 205012;
+	// 扣除钻石失败
+	Good_Reducejewel_Error = 205013;
+	// 仓库空间不足
+	Good_Warehouse_Insufficient = 205014;
+	// 购买失败当前道具未解锁
+	Good_Goodslock_Error = 205015;
+	// 购买上限
+	Good_Buygoods_Max = 205016;
+	// 扣除道具失败
+	Good_Deduct_Defeated = 205018;
+	// 没有购买的道具信息
+	Good_No_Info = 205019;
+	// 道具入库失败
+	Godd_Storage_Defeated = 205021;
+	// 道具配置异常
+	Good_Config_Error = 205022;
+	// 已超过购买时间
+	Good_BuyTime_Exceed = 205023;
+
+	// 邮件
+	// 附件领取失败
+	Mail_Getaccessory_Error = 206001;
+	// 获取附件失败
+	Mail_Getaccessory_Defeated = 206002;
+	// 更改邮件状态失败
+	Mail_ChangeMailState_Error = 206004;
+
+	// 章节
+	// 章节解锁失败
+	Seciton_Unlock_Error = 207002;
+	// 购买番外剧情失败紫星币不足
+	ExtraStory_Zixingbi_Insufficient = 207003;
+	// 紫星币扣除失败
+	ExtraStory_Zixingbi_Error = 207004;
+	// 购买番外剧情失败
+	BuyExtraStory_Error = 207005;
+	// 没有购买章节信息
+	Section_Buy_Info = 207007;
+	// 没有购买的番外信息
+	Section_Extra_Info = 207008;
+	// 章节通关异常
+	Section_Clearance_Error = 207009;
+	// 章节重复购买
+	Section_Repetition_Buy = 207010;
+	// 购买的不是下一章节
+	Section_Buy_Next = 207011;
+	// 新章节暂时未开放
+	Section_New_Open = 207012;
+
+	// 仓库
+	// 获取仓库数据失败
+	Warehouse_Detail_Defeated = 208001;
+	// 获取宝箱信息错误
+	Warehouse_BoxInfo_Error = 208004;
+	// 宝箱钥匙不足
+	WareHouse_BoxKey_NotEnough = 208005;
+	// 宝箱解锁失败
+	WareHouse_BoxUnlock_Error = 208006;
+	// 宝箱尚未解锁完成
+	WareHouse_BoxUnlockTime_NotEnough = 208007;
+	// 更改宝箱解锁信息失败
+	WareHouse_UpdateBoxUnlockInfo_Error = 208009;
+	// 扣除宝箱数量失败
+	WareHouse_DelBoxNum_Error = 208010;
+	// 仓库宝箱加速失败
+	WareHouse_BoxSpeed_Failure = 208011;
+	// 仓库礼盒配置信息有误
+	WareHouse_GitfBoxInfo_Error = 208014;
+	// 仓库道具使用失败
+	WareHouse_UseGoods_Error = 208018;
+
+	// 配置
+	// 没有对应Id的配置信息
+	Config_No_Info = 209001;
+	// 广告加速请求时间过短
+	Advertising_Speed_Anomaly = 209002;
+
+	// 签到
+	// 签到失败
+	Sign_In_Fail = 209500;
+	// 获取签单信息失败
+	Sign_Accumulate_Fail = 209501;
+	// 没有达到累积签到信息
+	Sign_Accumulate_Enough = 209502;
+	// 没有累积签到奖励
+	Sign_Accumulate_Award = 209503;
+	// 领取累积奖励失败
+	Sign_Award_Fail = 209504;
+	// 每日签到重复签到
+	Sign_Everyday_Repetition = 209505;
+
+	// 发送的消息为空
+	Send_Message_Null = 300001;
+
+	// 心动时刻
+	// 获取配置失败
+	Impulse_GetConfig_Error = 400001;
+	// 赠送礼物失败
+	Impulse_Send_Gift_Error = 400004;
+	// 章节增加好感度失败
+	Impulse_Section_Option_Error = 400005;
+	// 章节选项记录添加失败
+	Impulse_Add_Section_Optioned = 400006;
+	// 领取登录好感值失败
+	Impulse_GetLoginFavorable_Error = 400007;
+	// 已领取当前章节好感值
+	Impulse_Section_Favorable_Again = 400008;
+
+	// 晚会
+	// 房间列表为空
+	Section_Room_Null = 500001;
+	// 房间异常
+	Section_Room_Abnormity = 500002;
+	// 房间上限
+	Section_Room_Limit = 500003;
+	// 你当前不在房间内
+	Section_Absent_Room = 500004;
+	// 暂时不能领取经验
+	Section_No_Receive = 500005;
+	// 竞猜请求数据为空
+	Section_Guessing_Null = 500006;
+	// 移动位置失败
+	Section_Move_Position = 500007;
+	// 当前不在下注时间
+	Section_BetTime_Error = 500008;
+	// 活动暂未开启或以结束
+	Section_IsEndOrNotOpen = 500009;
+
+	// 角色
+	// 已拥有这个角色
+	Role_IsOwn = 600001;
+	// 该角色不在配置表中
+	Role_Config_DontExist = 600002;
+	// 切换角色失败
+	Role_SwitchRole_Error = 600005;
+	// 服饰修改失败
+	Role_HallUpdate_Error = 600006;
+	// 角色列表获取失败
+	Role_List_Defeated = 600007;
+	// 新增角色失败
+	Role_Add_Defeated = 600008;
+	// 没有服饰信息
+	Role_Costume_Info = 600009;
+	// 更新服饰失败
+	Role_Costume_Renewal = 600010;
+
+	// 引导
+	// 保存引导失败
+	Guidance_Save_Defeated = 650001;
+	// 引导异常
+	Guidance_Abnormal = 650002;
+	// 已完成引导
+	Guidance_Finish = 650003;
+	// 没有对应的引导id
+	Guidance_No_Info = 650004;
+    
+
+	// 任务
+	// 领取任务奖励失败
+	Task_GetAward_Error = 700001;
+	// 领取任务经验奖励失败
+	Task_GetTaskExperience_Error = 700002;
+
+	// 功能未开放
+	Function_IsNotOpen = 800001;
+
+	// 任务订单
+	// 暂无可提交任务订单
+	Deal_CurrentNotDealSubmit = 900001;
+	// 当前提交任务错误
+	Deal_CurrentSubMit_Error = 900002;
+	// 提交订单失败
+	Deal_Submit_Error = 900003;
+	// 刷新订单异常
+	Deal_Refresh_Error = 900004;
+	// 暂无订单数据
+	Deal_DataIsNull = 900005;
+	// 跳过订单冷却失败
+	Deal_SkipDealAdv_Error = 900006;
+	// 领取经验失败
+	Deal_GetExp_Error = 900007;
+	// 该订单还在冷却中
+	Deal_OnCDTime = 900008;
+}
+
+// 请求操作类型码
+enum OpCodeType {
+	OpCodeTypeNone = 0;
+	// 获取连接服务器信息和登录注册功能
+	LoadBalance = 1;
+	// 登录注册
+	AccountInfo = 2;
+	// 设置用户头像,昵称
+	BasicsInfo = 3;
+
+	// 获取连接服务器信息
+	GetConnectServer = 4;
+
+	// 获取好友列表
+	GetFriendList = 5;
+	// 获取申请列表
+	GetApplyList = 6;
+	// 获取推荐列表
+	GetReferralsList = 7;
+	// 申请添加
+	ApplyAdd = 8;
+	// 接收添加
+	AcceptAdd = 9;
+	// 拒绝添加
+	RepulseAdd = 10;
+	// 删除好友
+	DelFriend = 11;
+	// 搜索
+	SearchUser = 12;
+
+	// 选择进入大富翁地图
+	EnterRichManMap = 13;
+	// 筛子
+	RichManDice = 14;
+	// 大富翁结束
+	RichManFinish = 15;
+	// 大富翁抽道具或种子
+	RichLucky = 16;
+	// 广告作物加速
+	CropSpeed = 17;
+
+	// 购买道具
+	BuyProp = 18;
+	// 拖拽创建道具
+	Drag = 19;
+	// 获取庄园信息
+	GetManorInfo = 20;
+	// 使用化肥
+	Fertilizer = 21;
+	// 提前铲除
+	Eradicate = 22;
+	// 播种
+	Plant = 23;
+	// 收获
+	Harvest = 24;
+	// 偷取
+	Steal = 25;
+	// 交换位置
+	ChangeLocation = 26;
+
+	// 仓库道具出售
+	GoodSell = 27;
+	// 道具锁定
+	GoodLock = 28;
+
+	// 查询其它人庄园信息
+	QueryOtherManor = 29;
+	// 解锁大区域
+	UnlockArea = 30;
+	// 获取角色列表(大富翁)
+	GetRoleList = 31;
+	// 选择角色(大富翁)
+	ChoiceRole = 32;
+	// 购买角色(大富翁)
+	BuyRole = 33;
+
+	// 获取限购信息
+	PromotionsGoodsInfo = 34;
+	
+	// 金币钻石购买
+	GoldJewel = 35;
+
+	// 章节购买
+	BuySection = 36;
+	// 章节通关
+	ClearanceStcion = 37;
+	// 装饰物收回
+	OrnamentalRecycle = 38;
+	// 使用仓库宝箱
+	TreasureChest = 39;
+	// 领取宝箱奖励
+	TreasureChestAward = 40;
+	// 庄园宝箱解锁
+	ManorBox = 41;
+	// 领取庄园宝箱
+	ClickManorBox = 42;
+
+	// 购买番外剧情
+	BuyExtraStory = 43;
+
+	// 获取邮件
+	GetMail = 44;
+	// 获取附件
+	GetAccessory = 45;
+	// 根据邮件id获取附件信息
+	GetAccessoryInfo = 46;
+	// 每日签到
+	SignIn = 47;
+	// 获取好友列表庄园成熟信息
+    FriendManor = 49; 
+
+	// 玩家升级
+	UserUpGrage = 50;
+	// 宝箱解锁加速
+	BoxSpeedUp = 52;
+	// 工棚施工加速
+	WorkShedSpeedUp = 53;
+	// 获取仓库宝箱解锁信息
+	WareHouseBoxUnlockInfo = 54;
+	// 仓库宝箱加速
+	WareHouseBoxSpeed = 55;
+	// 仓库道具使用
+	UseWarehouseGoods = 56;
+	// 庄园日志获取
+	GetManorLogs = 57;
+	
+	// 购买大厅角色
+	PurchaseRole = 58;
+	// 切换大厅角色
+	SwitchoverRole = 59;
+	// 切换服装
+	SwitchoverCostume = 60;
+	// 获取自己庄园地鼠奖励
+	OneselfMarmot = 61;
+	// 好友庄园地鼠奖励
+	FriendMarmot = 62;
+
+	// 观看番外广告
+	AdvExtraStory = 63;
+
+	// 世界聊天
+	WorldChat = 64;
+	// 私聊
+	PrivateChat = 65;
+	// 进入(切换)晚会房间
+	EntranceRoom = 66;
+	// 竞猜
+	Guessing = 67;
+	// 频道聊天
+	ChannelChat = 68;
+	// 获取晚会房间列表
+	RoomList = 69;
+
+	// 登录领取好感值
+	LoginGetFavorable = 70;
+	// 赠送npc礼物
+	SendNPCGift = 71;
+	// 章节选项增加好感度
+	SectionAddFavorable = 72;
+	// 获取好感信息
+	GetFavorableInfo = 74;
+	
+	// 房间玩家位置移动
+	MoveLocation = 75;
+	// 退出房间
+	DepartureRoom = 76;
+	// 晚会动作
+	Motion = 78;
+
+	// 获取庄园地鼠奖励信息
+	GetMarmotAwardInfo = 79;
+
+	// 邮件状态更新
+	ChangeMailState = 80;
+
+	// 购物车功能
+	ShoppingTrolley = 81;
+
+	// 心跳
+	HeartBeat = 82;
+
+	// 累积签到
+	AccumulateSignIn = 83;
+	// 保存引导
+	SaveGuidance = 84;
+	// 好友庄园信息引导
+	ManorGuidance = 87;
+	// 好友庄园偷取引导
+	StealManorGuidance = 88;
+
+	// 获取任务信息
+	GetTaskInfo = 91;
+	// 领取任务奖励
+	GetTaskAward = 92;
+
+	// 注销账号
+	LogoutAccount = 93;
+	// cdk兑换
+	CdkConversion = 94;
+
+	// 获取订单信息
+	GetDealInfo = 95;
+	// 提交订单
+	SubmitDeal = 96;
+	// 刷新订单 
+	RefreshDeal = 97;
+	// 订单广告跳过
+	AdvSkipDeal = 98;
+	// 请求进入章节或者番外
+	EntranceSection = 99;
+	// 庄园作物是否成熟
+	CropMature = 100;
+	// 庄园装饰物旋转
+	ManorDecorateRotate = 101;
+	// 好友点赞
+	FriendLike = 102;
+	// 好友服饰
+	FriendCostume = 103;
+	// 一键浇水
+	OnceWatering = 104;
+
+	// 装饰物升级
+	DecorateUp = 105;
+
+	// 50000以后的操作码都为后端向前端推送
+	// 测试推送消息
+	Test_Data = 50000;
+	// 账号重复登录
+	RepetitionRegister = 50001;
+	// 申请添加好友
+	ApplyAddFriend = 50002;
+	// 同意添加好友
+	AcceptAddFriend = 50003;
+	// 拒绝添加好友
+	RepulseAddFriend = 50004;
+	// 删除好友
+	DeleteFriend = 50005;
+	// 邮件推送
+	MailPush = 50006;
+	// 更新好友庄园农作物成熟状态
+	ManorFriend =  50007;
+	// 公告推送
+	PushNoteMess = 50009;
+	// 话筒推送
+	PushVoiceMess = 50010;
+	// 世界聊天推送
+	PushWorldChat = 50011;
+	// 私聊
+	PushPrivateChat = 50012;
+	// 频道聊天
+	PushChannelChat = 50013;
+	// 进入房间玩家信息
+	PushEntranceRoomInfo = 50014;
+	// 房间位置移动玩家信息
+	PushMoveLocation = 50015;
+	// 推送竞猜信息
+	PushGuessing = 50016;
+	// 推送晚会动作
+	PushMotion = 50017;
+	// 退出房间
+	PushDepartureRoom = 50018;
+	// 活动结束
+	PushActivityFinish = 50019;
+	// 账号重复登录
+	PushRepetitionRegister = 50020;
+	// 服务器强制更新
+	PushCoerceRenewal = 60000;
+}
+
+// 服务器状态
+enum ServerStatus {
+    // 未知
+    ServerStatusNone = 0;
+    // 正常
+    Normal = 1;
+    // 维护
+    Maintain = 2;
+}
+
+// 登录平台
+enum RegisterPlatform {
+	// 未知
+	RegisterPlatformNone = 0;
+	// QQ
+	Qq = 1;
+	// 微信
+	WeChat =2;
+}
+// 庄园成熟
+enum manorMature {
+	// 未知
+	manorMatureNone = 0;
+	// 成熟
+	mature = 1;
+	// 未成熟
+	immature =2;
+}
+
+// webscoekt错误码
+enum WebscoektError {
+	WebscoektErrorNone = 0;
+	// 正常关闭
+	CLOSENORMAL = 1000;
+	// 终端离开可能因为服务端错误
+	CLOSEGOINGAWAY = 1001;
+	// 由于协议错误而中断连接。
+	CLOSEPROTOCOLERROR = 1002;
+	// 由于接收到不允许的数据类型而断开连接
+	CLOSEUNSUPPORTED = 1003;
+	// 表示没有收到预期的状态码
+	CLOSENOSTATUS = 1005;
+	// 用于期望收到状态码时连接非正常关闭
+	CLOSEABNORMAL = 1006;
+	// 由于收到了格式不符的数据而断开连接 
+	UnsupportedData = 1007;
+	// 由于收到不符合约定的数据而断开连接
+	PolicyViolation = 1008;
+	// 由于收到过大的数据帧而断开连接
+	CLOSETOOLARGE = 1009;
+	// 客户端期望服务器商定一个或多个拓展, 但服务器没有处理, 因此客户端断开连接
+	MissingExtension = 1010;
+	// 客户端由于遇到没有预料的情况阻止其完成请求, 因此服务端断开连接
+	InternalError = 1011;
+	// 服务器由于重启而断开连接
+	ServiceRestart = 1012;
+	// 服务器由于临时原因断开连接, 如服务器过载因此断开一部分客户端连接
+	TryAgainLater = 1013;
+	// 表示连接由于无法完成 TLS 握手而关闭 
+	TLSHandshake = 1015;
+}
+
+// 服务器类型
+enum ServerType {
+	ServerTypeNone = 0;
+	// 连接服务器
+	LinkServer = 1;
+	// 逻辑服务器
+	LogicServer = 2;
+	// 聊天服务器
+	ChatServer = 3;
+	// 晚会服务器
+	SoireeServer = 4;
+}
+
+// 庄园场景类型
+enum ManorScene {
+	// 没有
+	ManorSceneNone = 0;
+	// 地块
+	Tile = 1;
+	// 狗屋
+	DogHouse = 2;
+	// 宝箱，礼盒
+	GiftBox = 3;
+	// 装饰物
+	Decorate = 4;
+	// Npc
+	Npc = 5;
+}
+
+// 购买消费类型
+enum ConsumptionType {
+	ConsumptionTypeNone = 0;
+	// 金币
+	Gold = 1;
+	// 钻石
+	Diamond = 2;
+}
+
+// 宝箱解锁类型
+enum UnlockTreasureChest {
+	UnlockTreasureChestNone = 0;
+	// 钥匙
+	Key = 1;
+	// 倒计时
+	CountDown = 2;
+}
+
+// 作物阶段
+enum PeriodGrow {
+	// 种子
+	Seed = 0;
+	// 发芽
+	Germinate = 1;
+	// 成长
+	GrowUp = 2;
+	// 成熟期
+    Ripe = 3;
+}
+
+// 区域状态
+enum AreaState {
+	// 未解锁
+	NoUnlock = 0;
+	// 对话状态
+	Conversation = 1;
+	// 支付阶段
+	Pay = 2;
+	// 施工阶段
+	RoadWork = 3;
+	// 工棚状态 
+	WorkShed = 4;
+	// 移除工棚状态
+	RemoveWorkShed = 5; 
+}
+
+// 是否促销
+enum IsPromotion {
+	IsPromotionNone = 0;
+	// 原价
+	Original = 1;
+	// 促销
+	Promotion = 2;
+}
+
+// 道具商店购买方式
+enum GoodsBuyWay {
+	GoodsBuyWayNone = 0;
+	// 第一种方式
+	FirstWay = 1;
+	// 第二种方式
+	SecondWay = 2;
+}
+
+// 工棚加速方式
+enum WorkShedSpeedUpWay {
+	WorkShedSpeedUpWayNone = 0;
+	// 广告加速
+	AdvertisingWay = 1;
+	// 钻石方式
+	DiamondWay = 2;
+}
+
+// 不占用仓库格子道具ID列表
+enum WarehouseShieldIDList {
+	WarehouseShieldIDListNone = 0;
+	// 钻石
+	JewelID = 1000001;
+	// 金币
+	GoldID = 1000002;
+	// 积分
+	IntegralID = 1000003;
+	// 体力
+	PowerID = 2000001;
+	// 好感值
+	FavorableID = 2000012;
+}
+
+// 道具使用类型
+enum GoodsUseType {
+	GoodsUseTypeNone = 0;
+	// 扩展包类型
+	ExtendBag = 5;
+	// 仓库礼盒类型
+	GitfBox = 7;
+	// 话筒类型
+	VoiceType = 8;
+}
+
+// 庄园偷取类型
+enum ManorStealType {
+	ManorStealTypeNone = 0;
+	// 农作物
+	CropType = 1;
+	// 地鼠
+	DiglettType = 2;
+}
+
+// 竞技编号
+enum GuessingNumber {
+	GuessingNone = 0;
+	GuessingFirst = 1;
+	GuessingSecond = 2;
+	GuessingThird = 3;
+} 
+
+// 竞技状态
+enum GuessingStatus {
+	StatusNone = 0;
+	// 加速
+	StatusSpeed = 10001;
+	// 减速
+	StatusSlowDown = 10002;
+	// 无敌
+	StatusInvincible = 10003;
+	// 禁锢
+	StatusImprisoned = 10004;
+	// 活动结束
+	StatusFinish = 10005;
+}
+
+// 公告道具来源
+enum PushNoticeGoodsSource {
+	PushNoticeGoodsSourceNone = 0;
+	// 大富翁
+	ZillionairePushType = 1;
+	// 庄园地鼠
+	ManorDiglettType = 2;
+	// 宝箱
+	TreasureBoxType = 3;
+}
+
+// 公告源
+enum PushNoticeSource {
+	PushNoticeSourceNone = 0;
+	// 系统
+	SystemType = 1;
+	// 玩家
+	PlayerType = 2;
+}
+
+// 好感值领取状态
+enum GetFavorableState {
+	GetFavorableStateNone = 0;
+	// 未领
+	NeverGetType = 1;
+	// 已领
+	AlreadyGetType = 2;
+}
+
+// 邮件状态
+enum MailState {
+	MailStateNone = 0;
+	// 未读
+	UnReadState = 1;
+	// 已读已领
+	ReadAlreadyState = 2;
+	// 已读未领
+	ReadUnAlreadyState = 3;
+	// 删除
+	DeleteState = 4;
+}
+
+// 商店道具特殊类型
+enum ShopItemType {
+	ShopItemTypeNone = 0;
+	// 角色
+	Character = 5;
+	// 商店服装
+	StoreClothing = 6;
+	// 积分商店服装
+	PointsStoreClothing = 7;
+	// 头像
+	HeadImage = 8;
+}
+
+// 晚会活动比赛状态
+enum SoireeGameStates {
+	SoireeGameStatesNone = 0;
+	// 下注期
+	BetStates = 1;
+	// 比赛期
+	GameState = 2;
+}
+
+// 骰子类型
+enum DiceType {
+	DiceTypeNone = 0;
+	// 低位随机(1~3)
+	LowDice = 1;
+	// 高位随机(4~6)
+	HighDice = 2;
+	// 纯随机(1~6)
+	PureDice = 3;
+}
+
+// 抽奖类型
+enum LuckyTyep {
+	LuckyNone = 0;
+	// 种子抽奖
+	LuckySeed = 1;
+	// 道具抽奖
+	LuckyProp = 2;
+}
+
+// 任务类型
+enum TaskType {
+	TaskTypeNone = 0;
+	// 新手引导任务
+	GuidanceTaskType = 1;
+	// 日常任务
+	DailyTaskType = 2;
+}
+
+// 每日任务
+enum TaskID {
+	TaskIDNone = 0;
+	// 登录
+	LoginTask = 20001;
+	// 签到
+	SignInTask = 20002;
+	// 每日领取心动值
+	DailyGetImpulseTask = 20003;
+	// 进入庄园
+	InManorTask = 20004;
+	// 播种
+	PlantTask = 20005;
+	// 收获
+	HarvestTask = 20006;
+	// 施肥
+	FertilizerTask = 20007;
+	// 装扮庄园
+	DressManorTask = 20008;
+	// 出售果实
+	SellFruitTask = 20009;
+	// 开启普通宝箱
+	OpenOrdinaryTask = 20010; 
+	// 开启中级宝箱
+	OpenIntermediateTask = 20011;
+	// 开启特制宝箱
+	OpenSeniorTask = 20012;
+	// 自己庄园地鼠
+	ManorDiglettTask = 20013;
+	// 好友庄园地鼠
+	FriendManorDiglettTask = 20014;
+	// 消耗体力
+	UsePowerTask = 20015;
+	// 夹娃娃
+	CatchDollTask = 20016;
+	// 猜豆子
+	GuessBeansTask = 20017;
+	// 观看剧情
+	WatchSectionTask = 20018;
+	// 解锁朋友圈
+	UnLockCircleFriendsTask = 20019;
+	// 赠送礼物
+	SendGiftTask = 20020;
+	// 完成低级订单
+	FinishLowDeal = 20021;
+	// 完成中级订单
+	FinishMiddleDeal = 20022;
+	// 完成高级订单
+	FinishHighDeal = 20023;
+}
+
+// 引导任务
+enum GuideTask {
+	GuideTaskNone = 0;
+	// 种植播种
+	GuideSeed = 10003;
+	// 种植施肥
+	GuideFertilizer = 10004;
+	// 种植收获
+	GuideHarvest = 10005;
+	// 售卖作物
+	GuideSellFruit = 10008;
+	// 购买种子
+	GuideBuySeed = 10011;
+	// 偷取果实
+	GuideSteal = 10024;
+	// 放置装饰
+	GuideDecorate = 11026;
+	// 移动装饰物
+	GuideMoveDecorate = 11027;
+	// 移动地块
+	GuideMoveSoil = 11028;
+	// 抓地鼠
+	GuideDiglett = 11029;
+	// 投掷全随机骰子
+	GuideRandom = 11030;
+	// 投掷低位随机骰子
+	GuideLow = 11031;
+	// 投掷高位随机骰子
+	GuideHigh = 11032;
+	// 观看章节
+	GuideChapter = 11033;
+	// 成功解锁区域
+	GuideArea = 11034;
+	// 完成订单
+	FinishDeal = 11035;
+}
+
+// 仓库宝箱ID
+enum WarehouseBoxID {
+	WarehouseBoxIDNone = 0;
+	// 普通宝箱
+	OrdinaryBox = 3000001;
+	// 中级宝箱
+	IntermediateBox = 3000002;
+	// 特级宝箱
+	SeniorBox = 3000003;
+}
+
+// 功能开发
+enum OpenFunction {
+	OpenNone = 0;
+	// 庄园种植、施肥、收获
+	OpenManor = 10001;
+	// 仓库
+	OpenWarehouse = 10002;
+	// 新手培训任务
+	OpenGuidance = 10003;
+	// 邮件
+	OpenMail = 10004;
+	// 个人信息
+	OpenUserInfo = 10005;
+	// 大厅好友
+	OpenLobbyFriend = 10006;
+	// 章节
+	OpenChapter = 10007;
+	// 商店
+	OpenStore = 10008;
+	// 移动、缩放庄园
+	OpenMoveManor = 10009;
+	// 抓地鼠
+	OpenDiglett = 10010;
+	// 大富翁
+	OpenRichMan = 10011;
+	// 装扮功能
+	OpenDecorate = 10012;
+	// 庄园好友
+	OpenManorFriend = 10013;
+	// 每日任务
+	OpenTask = 10014;
+	// 心动时刻
+	OpenImpulse = 10015;
+	// 活动
+	OpenActivity = 10016;
+	// 晚会
+	OpenEvening = 10017;
+	// 庄园日志
+	OpenManorLog = 10018;
+	// 一件收获
+	OpenOneKeyHarvest = 10020;
+	// 钻石购买
+	OpenBuyJewel = 20001;
+}
+
+// 邮件事件ID
+enum MailConfigID {
+	MailConfigIDNone = 0;
+	// 大富翁
+	RichManMail = 1001;
+	// 庄园地鼠
+	ManorMail = 1002;
+	// 礼盒
+	GiftMail = 1003;
+	// 仓库宝箱
+	WareHouseBox = 1004;
+}
+
+// 普通邮件国际化ID
+enum MailLocalizeID {
+	MailLocalizeIDNone = 0;
+	// 仓库已满标题
+	WarehouseFullMailTitle = 310000001;
+	// 仓库已满副标题
+	WarehouseFullMailSubhead = 320000002;
+	// 仓库已满正文
+	WarehouseFullMailMessage = 330000003;
+}
+
+// 订单类型
+enum DealType {
+	DealTypeNone = 0;
+	// 低级订单
+	LowLevel = 1;
+	// 中级
+	MiddleLevel = 2;
+	// 高级
+	HighLevel = 3;
+}
+
+// 任务订单奖励类型
+enum DealAwardType {
+	DealAwardTypeNone = 0;
+	// 钻石
+	DealAwardJewelID = 1000001;
+	// 金币
+	DealAwardGoldID = 1000002;
+	// 水滴营养液
+	DealAwardWater = 2000005;
+	// 经验
+	DealAwardExp = 2000004;
+}

@@ -1,0 +1,28 @@
+// 仓库信息
+syntax = "proto3";
+package Game.Protocal;
+import "StageProperty.proto";
+
+// 金币钻石购买
+message CSGoldJewelBuy {
+    // 档次id
+    int32 LevelId = 1;
+}
+
+// 金币钻石购买返回
+message SCGoldJewelBuy {
+    repeated SCBuyGoodsStruct CurrencyInfo = 1;
+}
+
+// 获取充值钻石列表
+message PaymentStruct {
+    int32 Type = 1;
+}
+
+// 安卓请求充值信息
+message CSpayment {
+    //  订单编号
+    string OrderId = 1;
+}
+
+

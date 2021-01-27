@@ -1,0 +1,674 @@
+[
+  {
+    "title": "获取连接服务器信息",
+    "op": 1,
+    "request": "CSLinkInfo",
+    "response": "SCLinkInfo"
+  },
+  {
+    "title": "获取玩家信息",
+    "op": 2,
+    "request": "CSEmptyAccountInfo",
+    "response": "SCUserInfo"
+  },
+  {
+    "title": "设置用户昵称,头像",
+    "op": 3,
+    "request": "CSSetBasicsInfo",
+    "response": "SCEmtpySetBasicsInfo"
+  },
+  {
+    "title": "获取好友列表",
+    "op": 5,
+    "request": "CSEmptySCFriendList",
+    "response": "SCFriendList"
+  },
+  {
+    "title": "获取申请列表",
+    "op": 6,
+    "request": "CSEmptyApplyList",
+    "response": "SCApplyList"
+  },
+  {
+    "title": "获取推荐列表",
+    "op": 7,
+    "request": "CSEmptyRecommendList",
+    "response": "SCRecommendList"
+  },
+  {
+    "title": "申请添加",
+    "op": 8,
+    "request": "CSApply",
+    "response": "SCEmptyApply"
+  },
+  {
+    "title": "接收 添加",
+    "op": 9,
+    "request": "CSAccept",
+    "response": "SCEmptyAccept"
+  },
+  {
+    "title": "拒绝添加",
+    "op": 10,
+    "request": "CSRepulse",
+    "response": "SCEmptyRepluse"
+  },
+  {
+    "title": "删除好友",
+    "op": 11,
+    "request": "CSDelFriend",
+    "response": "SCEmtpyDelFriend"
+  },
+  {
+    "title": "搜索",
+    "op": 12,
+    "request": "CSSearch",
+    "response": "SCSearch"
+  },
+  {
+    "title": "进入大富翁地图",
+    "op": 13,
+    "request": "CSEnterMap",
+    "response": "SCSearch"
+  },
+  {
+    "title": "大富翁骰子",
+    "op": 14,
+    "request": "CSDice",
+    "response": "SCDiceResult"
+  },
+  {
+    "title": "大富翁结束",
+    "op": 15,
+    "request": "CSEmptyRichManFinish",
+    "response": "SCEmptyRichManFinish"
+  },
+  {
+    "title": "大富翁抽道具或种子",
+    "op": 16,
+    "request": "CSLucky",
+    "response": "SCLucky"
+  },
+  {
+    "title": "广告作物加速",
+    "op": 17,
+    "request": "CSEmptyCropSpeed",
+    "response": "SCEmptyCropSpeed"
+  },
+  {
+    "title": "购买道具",
+    "op": 18,
+    "request": "CSBuyProp",
+    "response": "SCBuyProp"
+  },
+  {
+    "title": "拖拽创建道具",
+    "op": 19,
+    "request": "CSDrag",
+    "response": "SCDrag"
+  },
+  {
+    "title": "获取庄园信息",
+    "op": 20,
+    "request": "CSEmptyManorInfo",
+    "response": "SCManorData"
+  },
+  {
+    "title": "使用化肥",
+    "op": 21,
+    "request": "CSFertilizer",
+    "response": "SCEmptFertilizer"
+  },
+  {
+    "title": "提前铲除种植物",
+    "op": 22,
+    "request": "CSEradicate",
+    "response": "SCEmptEradicate"
+  },
+  {
+    "title": "种植",
+    "op": 23,
+    "request": "CSPlantData",
+    "response": "SCPlantResult"
+  },
+  {
+    "title": "收获",
+    "op": 24,
+    "request": "CSHarvestData",
+    "response": "SCHarvestData"
+  },
+  {
+    "title": "偷取",
+    "op": 25,
+    "request": "CSStealData",
+    "response": "SCStealData"
+  },
+  {
+    "title": "交换位置",
+    "op": 26,
+    "request": "CSChangeLocation",
+    "response": "SCEmptChangeLocationData"
+  },
+  {
+    "title": "道具出售",
+    "op": 27,
+    "request": "CSGoodSellData",
+    "response": "SCGoodSellData"
+  },
+  {
+    "title": "道具锁定",
+    "op": 28,
+    "request": "CSGoodLock",
+    "response": "SCEmptGoodLock"
+  },
+  {
+    "title": "查询其它人庄园信息",
+    "op": 29,
+    "request": "CSQueryOther",
+    "response": "SCManorFriendData"
+  },
+  {
+    "title": "解锁大区域",
+    "op": 30,
+    "request": "CSUnlockArea",
+    "response": "SCUnlockArea"
+  },
+  {
+    "title": "获取角色列表(大富翁)",
+    "op": 31,
+    "request": "CSEmptyRoleList",
+    "response": "CSRoleSInfo"
+  },
+  {
+    "title": "选择角色(大富翁)",
+    "op": 32,
+    "request": "CSChoiceRole",
+    "response": "SCEmptChoiceRole"
+  },
+  {
+    "title": "购买角色(大富翁)",
+    "op": 33,
+    "request": "CSRoleBuy",
+    "response": "SCBuyProp"
+  },
+  {
+    "title": "获取限购信息",
+    "op": 34,
+    "request": "CSEmptyPromotionsGoodsInfo",
+    "response": "SCPromotionsGoodsInfo"
+  },
+  {
+    "title": "金币钻石购买",
+    "op": 35,
+    "request": "CSGoldJewelBuy",
+    "response": "SCGoldJewelBuy"
+  },
+  {
+    "title": "章节购买",
+    "op": 36,
+    "request": "CSBuySection",
+    "response": "SCBuySection"
+  },
+  {
+    "title": "章节通关",
+    "op": 37,
+    "request": "CSClearance",
+    "response": "SCEmptyClearance"
+  },
+  {
+    "title": "装饰物收回",
+    "op": 38,
+    "request": "CSOrnamentalRecycle",
+    "response": "SCEmptyOrnamentalRecycle"
+  },
+  {
+    "title": "使用仓库宝箱",
+    "op": 39,
+    "request": "CSTreasureChest",
+    "response": "SCTreasureChestResult"
+  },
+  {
+    "title": "领取宝箱",
+    "op": 40,
+    "request": "CSGetTreasureChestAward",
+    "response": "SCGetTreasureChestAwardResult"
+  },
+  {
+    "title": "购买番外剧情",
+    "op": 43,
+    "request": "CSBuyExtraStory",
+    "response": "SCBuyExtraStory"
+  },
+  {
+    "title": "获取邮件",
+    "op": 44,
+    "request": "CSEmptyMail",
+    "response": "SCMailInfo"
+  },
+  {
+    "title": "获取附件",
+    "op": 45,
+    "request": "CSAccessoryInWarehouse",
+    "response": "SCAccessoryInWarehouse"
+  },
+  {
+    "title": "根据邮件id获取邮件信息",
+    "op": 46,
+    "request": "CSAccessoryInfo",
+    "response": "SCAccessory"
+  },
+  {
+    "title": "每日签到",
+    "op": 47,
+    "request": "CSEmptySignIn",
+    "response": "SCEverydayAward"
+  },
+  {
+    "title": "获取好友列表庄园成熟信息",
+    "op": 49,
+    "request": "CSEmptyFriendSteal",
+    "response": "SCFriendStealInfo"
+  },
+  {
+    "title": "玩家升级",
+    "op": 50,
+    "request": "CSEmptyUserUpGrade",
+    "response": "SCCurrentExperience"
+  },
+  {
+    "title": "工棚施工加速",
+    "op": 53,
+    "request": "CSWorkShedSpeedUp",
+    "response": "SCWorkShedSpeedUp"
+  },
+  {
+    "title": "获取仓库宝箱解锁信息",
+    "op": 54,
+    "request": "CSEmptyWarehouseUnlockInfo",
+    "response": "SCTreasureChestUnlockInfo"
+  },
+  {
+    "title": "仓库宝箱加速",
+    "op": 55,
+    "request": "CSTreasureChestSpeed",
+    "response": "SCTreasureChestSpeed"
+  },
+  {
+    "title": "使用仓库道具",
+    "op": 56,
+    "request": "CSUseWarehouseGoods",
+    "response": "SCUseWarehouseGoods"
+  },
+  {
+    "title": "获取庄园日志",
+    "op": 57,
+    "request": "CSEmptyManorLogs",
+    "response": "SCManorLogs"
+  },
+  {
+    "title": "购买大厅角色",
+    "op": 58,
+    "request": "CSPurchaseRole",
+    "response": "SCPurchaseRole"
+  },
+  {
+    "title": "切换大厅角色",
+    "op": 59,
+    "request": "CSSwitchoverRole",
+    "response": "SCEmptySwitchoverRole"
+  },
+  {
+    "title": "切换服装",
+    "op": 60,
+    "request": "CSSwitchoverCostume",
+    "response": "SCEmptySwitchoverCostume"
+  },
+  {
+    "title": "获取自己庄园的地鼠奖励",
+    "op": 61,
+    "request": "CSOneselfMarmot",
+    "response": "SCOneselfMarmot"
+  },
+  {
+    "title": "请求好友庄园的地鼠奖励",
+    "op": 62,
+    "request": "CSFriendMarmot",
+    "response": "SCFriendMarmot"
+  },
+  {
+    "title": "观看番外广告",
+    "op": 63,
+    "request": "CSAdvExtraStory",
+    "response": "SCEmtpyAdvExtraStory"
+  },
+  {
+    "title": "世界聊天",
+    "op": 64,
+    "request": "CSWorldChat",
+    "response": "SCEmptyWorldChat"
+  },
+  {
+    "title": "私聊",
+    "op": 65,
+    "request": "CSPrivateChat",
+    "response": "SCEmptyPrivateChat"
+  },
+  {
+    "title": "进入(切换)晚会房间",
+    "op": 66,
+    "request": "CSEntranceRoom",
+    "response": "SCEntranceRoom"
+  },
+  {
+    "title": "竞猜",
+    "op": 67,
+    "request": "CSGuessing",
+    "response": "SCEmtpyGuessing"
+  },
+  {
+    "title": "频道聊天",
+    "op": 68,
+    "request": "CSChannelChat",
+    "response": "SCEmtpyChannelChat"
+  },
+  {
+    "title": "获取晚会房间列表",
+    "op": 69,
+    "request": "CSEmptyRoomList",
+    "response": "SCRoomListInfo"
+  },
+  {
+    "title": "登录领取好感值",
+    "op": 70,
+    "request": "CSGetLoginFavorable",
+    "response": "SCEmptyLoginGetFavorable"
+  },
+  {
+    "title": "赠送npc礼物",
+    "op": 71,
+    "request": "CSSendNPCGift",
+    "response": "SCEmptySendNPCGift"
+  },
+  {
+    "title": "章节选项增加好感度",
+    "op": 72,
+    "request": "CSSectionAddFavorable",
+    "response": "SCEmtpySectionAddFavorable"
+  },
+  {
+    "title": "获取好感信息",
+    "op": 74,
+    "request": "CSEmptyFavorableInfo",
+    "response": "SCFavorableInfo"
+  },
+  {
+    "title": "房间玩家位置移动",
+    "op": 75,
+    "request": "CSMoveLocation",
+    "response": "SCEmtpyMoveLocation"
+  },
+  {
+    "title": "退出房间",
+    "op": 76,
+    "request": "CSEmptyDepartureRoom",
+    "response": "SCEmptyDepartureRoom"
+  },
+  {
+    "title": "晚会动作",
+    "op": 78,
+    "request": "CSMotion",
+    "response": "SCEmptyMotion"
+  },
+  {
+    "title": "获取庄园地鼠奖励信息",
+    "op": 79,
+    "request": "CSEmptyMarmotAwardInfo",
+    "response": "SCMarmotAwardInfo"
+  },
+  {
+    "title": "改变邮件状态",
+    "op": 80,
+    "request": "CSChangeMailState",
+    "response": "SCEmtpyChangeMailState"
+  },
+  {
+    "title": "购物车功能",
+    "op": 81,
+    "request": "CSBuyPropInfo",
+    "response": "SCBuyProp"
+  },
+  {
+    "title": "心跳",
+    "op": 82,
+    "request": "CSEmptyHeartBeat",
+    "response": "SCEmtpyHeartBeat"
+  },
+  {
+    "title": "累积签到",
+    "op": 83,
+    "request": "CSAccumulateSignIn",
+    "response": "SCEmtpyAccumulateSignIn"
+  },
+  {
+    "title": "保存引导",
+    "op": 84,
+    "request": "CSSaveGuidance",
+    "response": "SCEmptySaveGuidance"
+  },
+  {
+    "title": "引导庄园信息",
+    "op": 87,
+    "request": "CSEmptyManorGuidance",
+    "response": "SCManorGuidance"
+  },
+  {
+    "title": "引导偷取",
+    "op": 88,
+    "request": "CSEmptyStealManorGuidance",
+    "response": "SCStealManorGuidance"
+  },
+  {
+    "title": "获取任务信息",
+    "op": 91,
+    "request": "CSEmptyGetTaskInfo",
+    "response": "SCGetTaskInfo"
+  },
+  {
+    "title": "领取任务奖励",
+    "op": 92,
+    "request": "CSGetTaskAward",
+    "response": "SCGetTaskAward"
+  },
+  {
+    "title": "注销账号",
+    "op": 93,
+    "request": "CSEmptyLogoutAccount",
+    "response": "SCEmptyLogoutAccount"
+  },
+  {
+    "title": "ckd兑换",
+    "op": 94,
+    "request": "CSCdkAward",
+    "response": "SCCdkAward"
+  },
+  {
+    "title": "获取订单信息",
+    "op": 95,
+    "request": "CSEmptyDealInfo",
+    "response": "SCDealInfo"
+  },
+  {
+    "title": "提交订单",
+    "op": 96,
+    "request": "CSSubmintDeal",
+    "response": "SCSubmintDeal"
+  },
+  {
+    "title": "刷新订单",
+    "op": 97,
+    "request": "CSRefreshDeal",
+    "response": "SCRefreshDeal"
+  },
+  {
+    "title": "订单广告跳过",
+    "op": 98,
+    "request": "CSAdvSkipDeal",
+    "response": "SCEmptyAdvSkipDeal"
+  },
+  {
+    "title": "进入章节",
+    "op": 99,
+    "request": "CSEntranceSection",
+    "response": "SCEmptyEntranceSection"
+  },
+  {
+    "title": "庄园作物是否成熟",
+    "op": 100,
+    "request": "CSEmptyCropMature",
+    "response": "SCCropMature"
+  },
+  {
+    "title": "庄园装饰物旋转",
+    "op": 101,
+    "request": "CSManorDecorateRotate",
+    "response": "SCEmptyManorDecorateRotate"
+  },
+  {
+    "title": "好友点赞",
+    "op": 102,
+    "request": "CSLike",
+    "response": "SCEmptyLike"
+  },
+  {
+    "title": "好友服饰",
+    "op": 103,
+    "request": "CSFriendCostume",
+    "response": "SCFriendCostume"
+  },
+  {
+    "title": "一键浇水",
+    "op": 104,
+    "request": "CSEmptyOnceWatering",
+    "response": "SCOnceWatering"
+  },
+  {
+    "title": "装饰物升级",
+    "op": 105,
+    "request": "CSDerectUp",
+    "response": "SCEmptyDerectUp"
+  },
+  {
+    "title": "申请添加推送",
+    "op": 50002,
+    "request": "IMessage",
+    "response": "SCFriendApplyPushMsg"
+  },
+  {
+    "title": "同意添加推送",
+    "op": 50003,
+    "request": "IMessage",
+    "response": "SCFriendAcceptPushMsg"
+  },
+  {
+    "title": "拒绝添加推送",
+    "op": 50004,
+    "request": "IMessage",
+    "response": "SCFriendRepulsePushMsg"
+  },
+  {
+    "title": "删除好友推送",
+    "op": 50005,
+    "request": "IMessage",
+    "response": "SCFriendDeletePushMsg"
+  },
+  {
+    "title": "推送邮件",
+    "op": 50006,
+    "request": "IMessage",
+    "response": "SCSendMailPushMsg"
+  },
+  {
+    "title": "公告推送",
+    "op": 50009,
+    "request": "IMessage",
+    "response": "SCNotePushMess"
+  },
+  {
+    "title": "话筒推送",
+    "op": 50010,
+    "request": "IMessage",
+    "response": "SCNotePushMess"
+  },
+  {
+    "title": "世界聊天推送",
+    "op": 50011,
+    "request": "IMessage",
+    "response": "SCChat"
+  },
+  {
+    "title": "私聊",
+    "op": 50012,
+    "request": "IMessage",
+    "response": "SCChat"
+  },
+  {
+    "title": "频道聊天",
+    "op": 50013,
+    "request": "IMessage",
+    "response": "SCChat"
+  },
+  {
+    "title": "进入房间玩家信息",
+    "op": 50014,
+    "request": "IMessage",
+    "response": "SCEntranceRoomInfo"
+  },
+  {
+    "title": "房间位置移动玩家信息",
+    "op": 50015,
+    "request": "IMessage",
+    "response": "SCMoveLocation"
+  },
+  {
+    "title": "推送竞猜信息",
+    "op": 50016,
+    "request": "IMessage",
+    "response": "SCpushGuessingInfo"
+  },
+  {
+    "title": "推送晚会动作",
+    "op": 50017,
+    "request": "IMessage",
+    "response": "SCpushMotion"
+  },
+  {
+    "title": "推送退出房间",
+    "op": 50018,
+    "request": "IMessage",
+    "response": "SCDepartureRoom"
+  },
+  {
+    "title": "晚会活动结束",
+    "op": 50019,
+    "request": "IMessage",
+    "response": "SCActivityFinish"
+  },
+  {
+    "title": "账号重复登录",
+    "op": 50020,
+    "request": "IMessage",
+    "response": "SCRepetitionRegister"
+  },
+  {
+    "title": "推送通知客户端有新邮件",
+    "op": 50021,
+    "request": "IMessage",
+    "response": "SCEmtpyMailPushMsg"
+  },
+  {
+    "title": "服务器强制更新",
+    "op": 60000,
+    "request": "IMessage",
+    "response": "SCEmptyCoerceRenewal"
+  }
+]

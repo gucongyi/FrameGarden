@@ -1,0 +1,24 @@
+// 引导
+syntax = "proto3";
+package Game.Protocal;
+import "Manor.proto";
+
+// 保存引导
+message CSSaveGuidance {
+    // 引导id
+    int32 Guidance = 1;
+    // 引导次数
+    int32 GuidanceNum = 2;
+}
+
+// 返回引导庄园信息
+message SCManorGuidance {
+    repeated SCManorStruct ManorInfo = 1;
+    repeated SCUnlockAreaStruct UnlockAreaInfo= 2;
+}
+
+// 返回引导偷取
+message SCStealManorGuidance {
+    repeated SCStealResult StealResult = 1;
+}
+

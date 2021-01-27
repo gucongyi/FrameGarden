@@ -1,0 +1,47 @@
+// 心动时刻
+syntax = "proto3";
+package Game.Protocal;
+import "Warehouse.proto";
+
+// 赠送NPC礼物
+message CSSendNPCGift {
+    // 礼物信息
+    repeated CSGoodStruct SendGiftInfo = 1;
+    // NPCid
+    int32 NPCId = 2;
+}
+
+// 章节选项增加好感度
+message CSSectionAddFavorable {
+    // 章节选项id
+    int32 SectionOptionId = 1;
+}
+
+// 好感信息结构
+message CSFavorableInfoStruct {
+    // 男主id
+    int32 HeroId = 1;
+    // 玩家对男主好感
+    int32 PlayerHeroValue = 2;
+    // 男主对玩家好感
+    int32 HeroPlayerValue = 3;
+}
+
+// 获取好感信息
+message SCFavorableInfo {
+    repeated CSFavorableInfoStruct FavorableInfo = 1;
+}
+
+// 获取登录领取好感值信息
+message CSLoginFavorableStruct {
+    // 上次领取时间戳
+    int64 GetFavorableTime = 1;
+    // 当前时间段领取状态
+    int32 GetFavorableState = 2;
+}
+
+// 登录领取好感值
+message CSGetLoginFavorable {
+    // 是否观看广告
+    bool IsAdvert = 1;
+}

@@ -1,0 +1,52 @@
+// 大厅角色
+syntax = "proto3";
+package Game.Protocal;
+import "StageProperty.proto";
+
+// 大厅角色列表结构
+message CSHallRoleStruct {
+    // 角色id
+    int32 RoleId = 1;
+    // 是否选中
+    bool PitchOn = 2;
+    // 服装id
+    repeated int32 ChoiceId = 3;
+    // 角色服装列表
+    string ChoiceList = 4;
+}
+
+// 购买角色
+message CSPurchaseRole {
+    int32 RoleId = 1;
+}
+
+// 购买角色返回
+message SCPurchaseRole {
+    // 返回货币信息
+    repeated SCBuyGoodsStruct CurrencyInfo = 1;
+}
+
+// 切换大厅角色
+message CSSwitchoverRole {
+    int32 RoleId = 1;
+}
+
+// 切换服装
+message CSSwitchoverCostume {
+    // 角色id
+    int32 RoleId = 1;
+    // 服饰id
+    repeated int32 CostumeId = 2;
+}
+
+// 获取好友服饰
+message CSFriendCostume {
+    // 好友ID
+    int64 FriendId = 1;
+}
+
+// 好友服饰返回
+message SCFriendCostume {
+    // 服饰id
+    repeated int32 CostumeId = 1;
+}

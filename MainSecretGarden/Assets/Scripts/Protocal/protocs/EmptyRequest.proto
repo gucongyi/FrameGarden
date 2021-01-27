@@ -1,0 +1,151 @@
+// 前端空请求协议
+syntax = "proto3";
+package Game.Protocal;
+
+// 请求获取玩家信息
+message CSEmptyAccountInfo {
+
+}
+
+// 好友列表
+message CSEmptySCFriendList {
+
+}
+// 推荐列表
+message CSEmptyRecommendList {
+
+}
+// 申请列表
+message CSEmptyApplyList {
+
+}
+
+// 获取庄园信息
+message CSEmptyManorInfo {
+
+}
+
+// 获取角色列表
+message CSEmptyRoleList {
+    
+}
+
+// 获取限购信息
+message CSEmptyPromotionsGoodsInfo {
+    
+}
+
+// 获取邮件
+message CSEmptyMail {
+
+}
+
+// 请求每日签到
+message CSEmptySignIn {
+    
+}
+
+// 获取好友庄园成熟信息
+message CSEmptyFriendSteal {
+    
+}
+
+// 玩家升级
+message CSEmptyUserUpGrade {
+    
+}
+
+// 获取仓库宝箱解锁信息
+message CSEmptyWarehouseUnlockInfo {
+    
+}
+
+// 获取庄园日志
+message CSEmptyManorLogs {
+    
+}
+
+// 获取晚会房间列表
+message CSEmptyRoomList {
+    
+}
+
+// 获取好感信息
+message CSEmptyFavorableInfo {
+    
+}
+
+// 退出房间
+message CSEmptyDepartureRoom {
+    
+}
+
+// 请求地鼠奖励信息
+message CSEmptyMarmotAwardInfo {
+    
+}
+
+// 请求心跳
+message CSEmptyHeartBeat {
+    
+}
+
+// 请求仓库引导
+message CSEmptyWarehouseGuidance {
+
+}
+
+// 请求庄园地鼠引导
+message CSEmptyManorDiglettGuidance {
+    
+}
+
+// 引导好友庄园信息
+message CSEmptyManorGuidance {
+
+}
+
+// 引导好友庄园偷取信息
+message CSEmptyStealManorGuidance {
+
+}
+
+// 引导大富翁
+message CSEmptyZillionaireGuidance {
+
+}
+
+// 大富翁完成
+message CSEmptyRichManFinish {
+    
+}
+
+// 获取任务信息
+message CSEmptyGetTaskInfo {
+    
+}
+
+// 广告作物加速
+message CSEmptyCropSpeed {
+    
+}
+
+// 注销账号
+message CSEmptyLogoutAccount {
+    
+}
+
+// 获取订单信息
+message CSEmptyDealInfo {
+    
+}
+
+// 获取庄园是否有成熟作物
+message CSEmptyCropMature {
+    
+}
+
+// 请求一键浇水
+message CSEmptyOnceWatering {
+    
+}

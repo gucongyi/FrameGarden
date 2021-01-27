@@ -1,0 +1,27 @@
+// 角色
+syntax = "proto3";
+package Game.Protocal;
+
+// 角色列表结构
+message CSRoleStruct {
+    // 角色id
+    int32 RoleId = 1;
+    // 是否选中
+    bool  PitchOn = 2;
+}
+message CSRoleSInfo {
+    repeated CSRoleStruct RoleSInfo = 1;
+}
+
+// 选择角色
+message CSChoiceRole {
+    // 角色id
+    int32 RoleId = 1;
+}
+
+// 购买角色
+message CSRoleBuy {
+    // 角色id
+    int32 RoleId = 1;
+}
+

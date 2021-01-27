@@ -1,0 +1,178 @@
+// 推送消息
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+
+// 道具类型
+message SCPropStruct {
+    // 商品id
+    int32 GoodsId = 1;
+    // 商品数量
+    int32 GoodsNum = 2;
+}
+
+// 邮件推送结构
+message MailStruct {
+    // 邮件标题
+    int32 MailTitle = 1;
+    // 邮件内容
+    int32 MailContent = 2;
+    // 邮件副标题
+    int32 SubheadID = 3;
+    // 奖励道具
+    repeated SCPropStruct PropInfo = 4;
+    // 邮件ID
+    int32 MailID = 5;
+    // 发件人
+    int32 Addresser = 6;
+    // 配置ID
+    int32 ConfigID = 7;
+    // 失效时间
+    int64 DisabledTime = 8;
+}
+
+// 发送邮件
+message SCSendMailPushMsg {
+    MailStruct MailInfoMsg = 1;
+}
+
+// 通知客户端有新邮件
+message SCEmtpyMailPushMsg{
+    
+}
+
+// 好友消息推送结构
+message SCFriendPushStruct {
+    // uid
+    int64 Uid = 1;
+    // 昵称
+    string FriendName = 2;
+    // 当前经验
+    int32 FriendExperience = 3;
+    // 头像
+    int32 FriendImage = 4;
+    // 在线状态
+    bool Online = 5;
+}
+// 申请
+message SCFriendApplyPushMsg {
+    SCFriendPushStruct ApplyPushMsg = 1;
+}
+//接受
+message SCFriendAcceptPushMsg {
+    SCFriendPushStruct AcceptPushMsg = 1;
+}
+// 拒绝
+message SCFriendRepulsePushMsg {
+    SCFriendPushStruct RepulsePushMsg = 1;
+}
+// 删除好友推送
+message SCFriendDeletePushMsg {
+    int64 OperationUid = 1;
+}
+
+// 订单充值结果
+message SCOrderResult {
+    // 订单id
+    string OrderId = 1;
+    // 订单结果
+    bool IsSucceed = 2;
+}
+
+// 公告信息推送
+message SCNotePushMess {
+    // 道具id
+    repeated int32 GoodsId = 1;
+    // 玩家游戏名
+    string Account = 2;
+    // 话筒消息
+    string VoiceMess = 3;
+    // 道具来源
+    PushNoticeGoodsSource GoodsSource = 4;
+    // 公告源
+    PushNoticeSource NoticeSource = 5;
+}
+
+// 聊天返回信息
+message SCChat {
+    // 玩家uid
+    int64 Uid = 1;
+    // 玩家昵称
+    string Name = 2;
+    // 玩家头像
+    int32 Image = 3;
+    // 发送消息
+    string Message = 4;
+    // 玩家经验
+    int64 Experience = 5;
+}
+
+// 推送进入房间玩家信息
+message SCEntranceRoomInfo {
+    // 玩家uid
+    int64 Uid = 1;
+    // 玩家昵称
+    string Name = 2;
+    // 角色id
+    int32 RoomId = 3;
+    // 服饰id
+    int32 CostumeId = 4;
+}
+
+// 推送有位置移动玩家信息
+message SCMoveLocation {
+    // 玩家uid
+    int64 Uid = 1;
+    // x轴
+    float Xaxle = 2;
+    // y轴
+    float Yaxle = 3;
+}
+
+// 乌龟赛跑状态结构
+message SCpushGuessingStatusStruct {
+    // 状态
+    GuessingStatus Status = 1;
+    // 状态持续时间
+    int32 StatusTime = 2;
+}
+// 乌龟赛跑
+message SCpushGuessingStruct {
+    // 乌龟编号
+    GuessingNumber Id = 1;
+    // 状态
+    repeated SCpushGuessingStatusStruct Status = 2;
+    // 位置
+    int32 Meter = 3;
+}
+message SCpushGuessingInfo {
+    // 乌龟比赛信息
+    repeated SCpushGuessingStruct guessingInfoOne = 1;
+    // 乌龟比赛信息
+    repeated SCpushGuessingStruct guessingInfoTwo = 2;
+    // 乌龟比赛信息
+    repeated SCpushGuessingStruct guessingInfoThree = 3;
+    // 结束时间
+    int64 GameEndTime = 4;
+}
+
+// 推送玩家发送动作
+message SCpushMotion {
+    int32 Id = 1;
+}
+
+// 退出房间
+message SCDepartureRoom {
+    int64 Uid = 1;
+}
+
+// 活动结束
+message SCActivityFinish {
+    // 活动结束时间戳
+    int64 EndTime = 1;
+}
+
+// 账号重复登录
+message SCRepetitionRegister {
+
+}

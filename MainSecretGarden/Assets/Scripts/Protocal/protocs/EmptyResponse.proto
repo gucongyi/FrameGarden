@@ -1,0 +1,213 @@
+// 后端空返回协议
+syntax = "proto3";
+package Game.Protocal;
+
+// 使用化肥
+message SCEmptFertilizer {
+
+}
+
+// 提前铲除已种植物
+message SCEmptEradicate {
+
+}
+
+// 交换位置
+message SCEmptChangeLocationData {
+
+}
+
+// 道具锁定
+message SCEmptGoodLock {
+
+}
+
+// 选择角色
+message SCEmptChoiceRole {
+
+}
+
+// 装饰物收回
+message SCEmptyOrnamentalRecycle {
+
+}
+
+// 申请添加好友
+message SCEmptyApply {
+
+}
+
+// 接受添加好友
+message SCEmptyAccept {
+
+}
+
+// 拒绝添加好友
+message SCEmptyRepluse {
+
+}
+
+// 删除好友
+message SCEmtpyDelFriend {
+
+}
+
+// 章节通关
+message SCEmptyClearance {
+
+}
+
+// 切换大厅角色
+message SCEmptySwitchoverRole {
+    
+}
+
+// 切换服装
+message SCEmptySwitchoverCostume {
+
+}
+
+// 世界聊天
+message SCEmptyWorldChat {
+
+}
+
+// 私聊
+message SCEmptyPrivateChat {
+    
+}
+
+// 观看番外广告
+message SCEmtpyAdvExtraStory {
+
+}
+
+// 赠送NPC礼物
+message SCEmptySendNPCGift {
+
+}
+
+// 章节增加好感度
+message SCEmtpySectionAddFavorable {
+
+}
+
+// 使用好感值
+message SCEmptyUseFavorableValue { 
+
+}
+
+// 领取好感值
+message SCEmptyLoginGetFavorable {
+    
+}
+
+// 竞猜
+message SCEmtpyGuessing {
+
+}
+
+// 频道聊天
+message SCEmtpyChannelChat {
+    
+}
+
+// 移动位置
+message SCEmtpyMoveLocation {
+    
+}
+
+// 退出房间
+message SCEmptyDepartureRoom {
+    
+}
+
+// 晚会请求动作
+message SCEmptyMotion {
+    
+}
+
+// 改变邮件状态
+message SCEmtpyChangeMailState {
+    
+}
+
+// 改变邮件状态
+message SCEmtpySetBasicsInfo {
+    
+}
+
+// 心跳返回
+message SCEmtpyHeartBeat {
+    
+}
+
+// 返回累加奖励
+message SCEmtpyAccumulateSignIn {
+    
+}
+
+// 返回进入大富翁地图
+message SCEmtpyEnterMap {
+
+}
+
+// 返回大富翁结束
+message SCEmptyRichManFinish {
+
+}
+
+// 返回保存引导
+message SCEmptySaveGuidance {
+    
+}
+
+// 返回庄园地鼠引导
+message SCEmptyManorDiglettGuidance {
+
+}
+
+// 返回大富翁引导
+message SCEmptyZillionaireGuidance {
+    
+}
+
+// 返回广告作物加速
+message SCEmptyCropSpeed {
+    
+}
+
+// 返回注销账号
+message SCEmptyLogoutAccount {
+    
+}
+
+// 返回服务器强制更新
+message SCEmptyCoerceRenewal {
+    
+}
+
+// 返回订单广告跳过
+message SCEmptyAdvSkipDeal {
+
+}
+
+// 返回进入章节
+message SCEmptyEntranceSection {
+    
+}
+
+// 放回庄园装饰物旋转
+message SCEmptyManorDecorateRotate {
+    
+}
+
+// 返回好友点赞
+message SCEmptyLike {
+    
+}
+
+// 返回装饰物升级
+message SCEmptyDerectUp {
+
+}

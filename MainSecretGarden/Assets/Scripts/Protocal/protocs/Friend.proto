@@ -1,0 +1,82 @@
+// 好友
+syntax = "proto3";
+package Game.Protocal;
+
+// 搜索用户
+message CSSearch {
+    string SearchContext = 1;
+}
+// 搜索结果结构
+message CSSearchStruct {
+    // uid
+    int64 Uid = 1;
+    // 昵称
+    string FriendName = 2;
+    // 当前经验
+    int32 FriendExperience = 3;
+    // 头像
+    int32 FriendImage = 4;
+    // 在线状态
+    bool Online = 5;
+    // 是否已申请
+    bool IsApply = 6;
+    // 用户自定义头像
+    string ImageAddress = 7;
+}
+
+// 搜索结果
+message SCSearch {
+    repeated CSSearchStruct Search = 1;
+}
+
+// 申请添加
+message CSApply {
+    int64 OperationUid = 1;
+}
+
+// 接受添加
+message CSAccept {
+    int64 OperationUid = 1;
+}
+
+// 拒绝添加
+message CSRepulse {
+    int64 OperationUid = 1;
+}
+
+// 删除好友
+message CSDelFriend {
+    int64 OperationUid = 1;
+}
+
+// 好友列表单个结构
+message SCFriendInfo {
+    // uid
+    int64 Uid = 1;
+    // 昵称
+    string FriendName = 2;
+    // 当前经验
+    int32 FriendExperience = 3;
+    // 头像
+    int32 FriendImage = 4;
+    // 在线状态
+    bool Online = 5;
+    // 用户自定义头像
+    string ImageAddress = 6;
+}
+
+// 好友列表
+message SCFriendList {
+    repeated SCFriendInfo FriendListInfo = 1;
+    int32 FriendAmountLimit = 2;
+}
+
+// 推荐列表
+message SCRecommendList {
+    repeated SCFriendInfo RecommendListInfo = 1;
+}
+
+// 申请列表
+message SCApplyList {
+    repeated SCFriendInfo ApplyListInfo = 1;
+}

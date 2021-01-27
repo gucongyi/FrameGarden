@@ -1,0 +1,110 @@
+// 道具
+syntax = "proto3";
+package Game.Protocal;
+import "EnumType.proto";
+import "Warehouse.proto";
+
+// 购买道具
+message CSBuyProp {
+    // 商品id
+    int32 GoodId = 1;
+    // 商品数量
+    int32 GoodNum = 2;
+    // 购买方式
+    GoodsBuyWay BuyWay = 3;
+}
+
+// 道具返回结构
+message SCBuyGoodsStruct { 
+    // 商品id
+    int32 GoodsId = 1;
+    // 数量
+    int32 Count = 2;
+}
+
+// 购买道具返回
+message SCBuyProp {
+    // 货币信息
+    repeated SCBuyGoodsStruct CurrencyInfo = 1;
+}
+
+// 限购道具结构
+message GoodsInfoStruct {
+    // 商店id
+    int32 ShopId = 1;
+    // 今日已购数量
+    int32 TodayBuyNum = 2;
+    // 永久已购数量
+    int32 PermanentBuyNum = 3;
+}
+
+// 限购道具信息
+message SCPromotionsGoodsInfo {
+    repeated GoodsInfoStruct PromotionsGoods = 1;
+}
+
+// 使用道具
+message CSUseWarehouseGoods {
+    // 道具id
+    int32 GoodsId = 1;
+    // 道具数量
+    int32 GoodNum = 2;
+    // 话筒内容
+    string Message = 3;
+}
+// 使用道具返回
+message SCUseWarehouseGoods {
+    repeated SCBuyGoodsStruct GetGoodsInfo = 1;
+}
+// 使用仓库宝箱
+message CSTreasureChest {
+    // 消费类型
+    UnlockTreasureChest ConsumptionType = 1;
+    // 宝箱id
+    int32 GoodId = 2;
+}
+
+// 获取解锁仓库宝箱信息
+message SCTreasureChestUnlockInfo {
+    repeated WarehouseBoxUnlockStruct UnlockInfo = 1;
+}
+// 仓库宝箱解锁信息结构
+message WarehouseBoxUnlockStruct {
+    // 宝箱id
+    int32 BoxId = 1;
+    // 解锁时间
+    int64 UnlockTime = 2;
+}
+
+//  使用仓库宝箱结果
+message SCTreasureChestResult {
+    // 解锁时间
+    int64 UnlockTime = 1;
+} 
+
+// 点击领取宝箱
+message CSGetTreasureChestAward {
+    // 宝箱id
+    int32 GoodId = 1;
+}
+
+// 领取宝箱结果
+message SCGetTreasureChestAwardResult {
+    // 获得道具信息
+    repeated CSWareHouseStruct UsePropInfo = 1;
+}
+
+// 仓库宝箱加速id
+message CSTreasureChestSpeed {
+    int32 GoodId = 1;
+}
+
+// 仓库宝箱加速后时间
+message SCTreasureChestSpeed {
+    int64 Time = 1;
+}
+
+// 购物车功能
+message CSBuyPropInfo {
+    repeated CSBuyProp Info = 1;
+}
